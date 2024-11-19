@@ -48,26 +48,32 @@ namespace HomeWork_8.Core.BankAccount.BankAccount
 
         //Id
 
-        public string Id
-        {
-            get => _id!;
+         public string Id
+         {
+             get => _id!;
+        
+             set
+             {
+                 if (IdValidator.CheckUserId(value))
+                 {
+                     _id = value;
+                     DataChanged?.Invoke(value);
+                 }
+             }
+         }
 
-            set
-            {
-                _id = value;
-                DataChanged?.Invoke(value);
-            }
-        }
-
-        public decimal Cash
-        {
-            get => _cash!;
-
-            set
-            {
-                _cash = value;
-                DataChanged?.Invoke(value.ToString());
-            }
-        }
+         public decimal Cash
+         {
+             get => _cash!;
+        
+             set
+             {
+                 if (CashValidator.CheckCash(value))
+                 {
+                     _cash = value;
+                     DataChanged?.Invoke(value.ToString());
+                 }
+             }
+         }
     }
 }
