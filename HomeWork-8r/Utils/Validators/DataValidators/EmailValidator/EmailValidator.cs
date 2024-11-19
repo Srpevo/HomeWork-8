@@ -13,12 +13,12 @@ namespace HomeWork_8.Utils.Validators.DataValidators.EmailValidator
     {
         public static bool CheckUserEmail(string email)
         {
-            int at_counter = email.Count(x => x == '@');
-            int dot_counter = email.Count(x => x == '.');
-
             if (string.IsNullOrWhiteSpace(email)) 
                 throw new IncorrectEmailEntryException("email cannot be empty");
 
+            int at_counter = email.Count(x => x == '@');
+            int dot_counter = email.Count(x => x == '.');
+            
             var Regx = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"); //using regular expression for more realism ;)
             
             if (!Regx.IsMatch(email))
