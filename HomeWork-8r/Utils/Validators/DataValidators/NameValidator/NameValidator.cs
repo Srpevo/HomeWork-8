@@ -11,7 +11,7 @@ namespace HomeWork_8.Utils.Validators.DataValidators.UserNameValidator
     {
         public static bool CheckUserName(string name)
         {
-            if (name.Length == 0)
+            if (string.IsNullOrWhiteSpace(email))
                 throw new IncorrectNameEntryException("name cannot be empty");
 
             else if (name.Length < 3)
