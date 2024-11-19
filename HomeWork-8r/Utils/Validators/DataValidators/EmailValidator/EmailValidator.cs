@@ -23,7 +23,7 @@ namespace HomeWork_8.Utils.Validators.DataValidators.EmailValidator
             
             if (!Regx.IsMatch(email))
             {
-                string[] WordsToRemove = { "mail", "com", "gmail", "@", "." };
+                string[] WordsToRemove = { "gmail", "com", "mail", "@", "." };
                 string CorrectEmail = email;
                 
                 foreach (string word in WordsToRemove)
